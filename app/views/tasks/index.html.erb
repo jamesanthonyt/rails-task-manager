@@ -4,12 +4,12 @@
 <ul style="list-style-type: none;">
   <% @tasks.each do |task| %>
     <li>
-      <% if task.completed == true %>
-        <span>&#9733;</span>
-      <% else %>
-        <span>&#9734;</span>
-      <% end %>
-        <%= task.title %>
+      <span><%= task.completed == true ? "&#9733;".html_safe : "&#9734;".html_safe %></span>
+      <%= link_to task.title, task_path(task) %> |
+      <%= link_to 'DELETE', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
     </li>
   <% end %>
 </ul>
+<%= link_to 'Add new task', new_task_path %>
