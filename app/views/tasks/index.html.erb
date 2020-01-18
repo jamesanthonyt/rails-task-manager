@@ -1,0 +1,15 @@
+<h1>Tasks</h1>
+<p>Here is a list of all your tasks</p>
+
+<ul style="list-style-type: none;">
+  <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed == true %>
+        <span>&#9733;</span>
+      <% else %>
+        <span>&#9734;</span>
+      <% end %>
+        <%= task.title %>
+    </li>
+  <% end %>
+</ul>
